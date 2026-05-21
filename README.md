@@ -9,4 +9,4 @@ Growing up, Pokémon has been one of my favorite hobbies. I chose it as the cent
 The dataset I will be using for this project is titled [**"1000 Pokemon Dataset"**](https://www.kaggle.com/datasets/noodulz/pokemon-dataset-1000/data) from Kaggle. The dataset contains ~40 images per 1,000 Pokémon species, totaling over 26,000 images and 1,000 classes. Fortunately, the dataset has already been split into an 80% training set, 10% evaluation set, and 10% test set.
 
 ## **:electric_plug:  Installation**
-```pip install .```
+```pip install git+https://github.com/mandyzhan05/DSCI-410L-Final-Project.git```
