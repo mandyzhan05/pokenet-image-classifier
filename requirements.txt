@@ -1,0 +1,7 @@
+torch
+torchvision
+Pillow
+kagglehub
+numpy
+pytorch-lightning
+torchmetrics
