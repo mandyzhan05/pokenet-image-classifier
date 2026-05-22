@@ -5,11 +5,6 @@ from pathlib import Path
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 
-# Download the dataset from Kaggle
-# import kagglehub
-
-# path = kagglehub.dataset_download("noodulz/pokemon-dataset-1000")
-
 image_extensions = {".jpeg", ".jpg", ".png"}
 
 # train_directory = os.path.join(path, "pokemon-dataset-1000", "train")

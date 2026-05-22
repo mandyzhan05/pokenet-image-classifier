@@ -8,5 +8,14 @@ Growing up, Pokémon has been one of my favorite hobbies. I chose it as the cent
 ## **:floppy_disk:  Data Overview**
 The dataset I will be using for this project is titled [**"1000 Pokemon Dataset"**](https://www.kaggle.com/datasets/noodulz/pokemon-dataset-1000/data) from Kaggle. The dataset contains ~40 images per 1,000 Pokémon species, totaling over 26,000 images and 1,000 classes. Fortunately, the dataset has already been split into an 80% training set, 10% evaluation set, and 10% test set.
 
+## **:package: Package Usage**
+``` import os
+from src.dataloader import PokemonDataset
+from torch.utils.data import DataLoader
+
+train_dataset = PokemonDataset(os.environ["POKEMON_DATASET_PATH"])
+train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+```
+
 ## **:electric_plug:  Installation**
 ```pip install git+https://github.com/mandyzhan05/DSCI-410L-Final-Project.git```
