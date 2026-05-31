@@ -20,4 +20,4 @@ dependencies = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["src*"]
+include = ["pokenet*"]
