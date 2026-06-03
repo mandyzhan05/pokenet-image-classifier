@@ -88,3 +88,5 @@ def get_data_loaders(base_path, batch_size = 64, image_size = 256):
     train_loader = DataLoader(dataset = train_dataset, batch_size = 64, shuffle = True)
     validation_loader = DataLoader(dataset = validation_dataset, batch_size = 64)
     test_loader = DataLoader(dataset = test_dataset, batch_size = 64)
+
+    return train_loader, validation_loader, test_loader
