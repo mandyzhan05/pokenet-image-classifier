@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
+from torchvision import transforms
 
 image_extensions = {".jpeg", ".jpg", ".png"}
 
@@ -62,11 +63,11 @@ def data_transform(image_size = 256):
     '''
 
     return transforms.Compose([
-    transforms.Resize((image_size, image_size)),  # Resize
-    transforms.ToTensor(),  # Convert to Tensor
-    transforms.Normalize(mean = [0.485, 0.456, 0.406],
-                         std = [0.229, 0.224, 0.225])
-])  # Normalize
+        transforms.Resize((image_size, image_size)),  # Resize
+        transforms.ToTensor(),  # Convert to Tensor
+        transforms.Normalize(mean = [0.485, 0.456, 0.406],
+                             std = [0.229, 0.224, 0.225])
+    ])  # Normalize
 
 def get_data_loaders(base_path, batch_size = 64, image_size = 256):
     '''
