@@ -68,12 +68,12 @@ def data_transform(image_size = 256):
                          std = [0.229, 0.224, 0.225])
 ])  # Normalize
 
-def get_data_loaders(path, batch_size = 64, image_size = 256):
+def get_data_loaders(base_path, batch_size = 64, image_size = 256):
     '''
     Creates data loaders for train, validation, and test sets
 
     Args:
-    path (str): Base path to the dataset
+    base_path (str): Base path to the dataset
     batch_size (int): Batch size for the dataloaders
     '''
     transform = data_transform(image_size)
