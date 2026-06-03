@@ -10,7 +10,7 @@ The dataset I will be using for this project is titled [**"1000 Pokemon Dataset"
 
 ## **:package: Package Usage**
 ``` import os
-from src.dataloader import PokemonDataset
+from pokenet.dataloader import PokemonDataset
 from torch.utils.data import DataLoader
 
 train_dataset = PokemonDataset(os.environ["POKEMON_DATASET_PATH"])
