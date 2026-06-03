@@ -80,9 +80,9 @@ def get_data_loaders(base_path, batch_size = 64, image_size = 256):
     transform = data_transform(image_size)
 
     # Apply transformations to the dataset from each directory
-    train_dataset = PokemonDataset(os.path.join(path, "train"), transform = transform)
-    validation_dataset = PokemonDataset(os.path.join(path, "val"), transform = transform)
-    test_dataset = PokemonDataset(os.path.join(path, "test"), transform = transform)
+    train_dataset = PokemonDataset(os.path.join(base_path, "train"), transform = transform)
+    validation_dataset = PokemonDataset(os.path.join(base_path, "val"), transform = transform)
+    test_dataset = PokemonDataset(os.path.join(base_path, "test"), transform = transform)
 
     # Get a batch of data of training data
     train_loader = DataLoader(dataset = train_dataset, batch_size = 64, shuffle = True)
