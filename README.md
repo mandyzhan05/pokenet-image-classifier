@@ -1,6 +1,6 @@
 # **DSCI 410L Final Project**
 
-## **:round_pushpin:  Proposal**
+## **:round_pushpin:  Purpose**
 For my DSCI 410L final project, I will be developing an image classifier that seeks to accurately classify a Pokémon based on a given image. Some images of the same Pokémon may have different qualities or art styles, so I am curious whether a classifier built using a convolutional neural network (CNN) can bypass these differences and accurately label the Pokémon.
 
 Growing up, Pokémon has been one of my favorite hobbies. I chose it as the center of my term-long project so I could actively apply the skills acquired from a deep learning course to one of my interests. I hope that this project can mark the beginning of my interest in working on machine learning and deep learning projects outside of the classroom, where I can simultaneously explore my interests and further develop my coding and analytical skills.
@@ -19,3 +19,7 @@ train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 
 ## **:electric_plug:  Installation**
 ```pip install git+https://github.com/mandyzhan05/DSCI-410L-Final-Project.git```
+
+## **:clipboard: Results**
+
+## **:thought_balloon: Limitations**
