@@ -7,8 +7,6 @@ from torch.utils.data import Dataset, DataLoader
 
 image_extensions = {".jpeg", ".jpg", ".png"}
 
-# train_directory = os.path.join(path, "pokemon-dataset-1000", "train")
-
 class PokemonDataset(Dataset):
     '''
     Create a custom dataloader from the following Kaggle dataset: https://www.kaggle.com/datasets/noodulz/pokemon-dataset-1000/data.
@@ -57,3 +55,35 @@ class PokemonDataset(Dataset):
         label = torch.tensor(label, dtype = torch.long)
 
         return image, label
+
+def data_transform(image_size = 256):
+    '''
+    Perform transformations to reduce dimensionality and create a single preprocessing pipeline
+    '''
+
+    return transforms.Compose([
+    transforms.Resize((image_size, image_size)),  # Resize
+    transforms.ToTensor(),  # Convert to Tensor
+    transforms.Normalize(mean = [0.485, 0.456, 0.406],
+                         std = [0.229, 0.224, 0.225])
+])  # Normalize
+
+def get_data_loaders(path, batch_size = 64, image_size = 256):
+    '''
+    Creates data loaders for train, validation, and test sets
+
+    Args:
+    path (str): Base path to the dataset
+    batch_size (int): Batch size for the dataloaders
+    '''
+    transform = data_transform(image_size)
+
+    # Apply transformations to the dataset from each directory
+    train_dataset = PokemonDataset(os.path.join(path, "train"), transform = transform)
+    validation_dataset = PokemonDataset(os.path.join(path, "val"), transform = transform)
+    test_dataset = PokemonDataset(os.path.join(path, "test"), transform = transform)
+
+    # Get a batch of data of training data
+    train_loader = DataLoader(dataset = train_dataset, batch_size = 64, shuffle = True)
+    validation_loader = DataLoader(dataset = validation_dataset, batch_size = 64)
+    test_loader = DataLoader(dataset = test_dataset, batch_size = 64)
