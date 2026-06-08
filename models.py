@@ -18,7 +18,9 @@ def get_model(num_classes = 1000):
         parameter.requires_grad = False
         
     # Unfreeze the final FC layer for fine-tuning, outputting num_classes
-    model.fc = nn.Linear(model.fc.in_features, num_classes)
+    model.fc = nn.Sequential(
+        nn.Dropout(0.5),
+        nn.Linear(model.fc.in_features, num_classes)
 
     return model
 
