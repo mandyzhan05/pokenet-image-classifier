@@ -1,4 +1,4 @@
-# **DSCI 410L Final Project**
+# **PokéNet: Building a Pokémon Image Classifier with ResNet50**
 
 ## **:round_pushpin:  Purpose**
 For my DSCI 410L final project, I will be developing an image classifier that seeks to accurately classify a Pokémon based on a given image. Some images of the same Pokémon may have different qualities or art styles, so I am curious whether a classifier built using a convolutional neural network (CNN) can bypass these differences and accurately label the Pokémon.
