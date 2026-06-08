@@ -7,13 +7,6 @@ from models import get_model, unfreeze_model, get_device
 from pokenet.dataloader import get_data_loaders
 from torchvision import models
 
-# Define hyperparameters
-EPOCHS_PHASE1 = 5  # Epochs to train with frozen layers
-EPOCHS_PHASE2 = 10  # Epochs to fine-tune the full network
-LEARNING_RATE_PHASE1 = 1e-3
-LEARNING_RATE_PHASE2 = 1e-5  # Lower LR for Phase 2 to avoid destroying pretrained weights
-BATCH_SIZE = 64
-
 def load_config(path):
     '''
     Load configuration file
@@ -23,6 +16,14 @@ def load_config(path):
     '''
     with open(path, "r", encoding = "utf-8") as file:
         return yaml.safe_load(file)
+
+# Config hyperparameters
+config = load_config("config.yaml")
+EPOCHS_PHASE1 = config["epochs_phase1"]
+EPOCHS_PHASE2 = config["epochs_phase2"]
+LEARNING_RATE_PHASE1 = config["learning_rate_phase1"]
+LEARNING_RATE_PHASE2 = config["learning_rate_phase2"]
+BATCH_SIZE = config["batch_size"]
 
 def train_one_epoch(model, dataloader, optimizer, loss_function, device):
     '''
