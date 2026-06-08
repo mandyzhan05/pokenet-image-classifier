@@ -1,0 +1,10 @@
+# Dataset path is set via POKEMON_DATASET_PATH environment variable
+
+# Training hyperparameters
+epochs_phase1: 5
+epochs_phase2: 10
+learning_rate_phase1: 0.001
+learning_rate_phase2: 0.00001
+batch_size: 64
+num_classes: 1000
+image_size: 256

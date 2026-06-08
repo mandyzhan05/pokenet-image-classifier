@@ -5,7 +5,7 @@ from torchvision import models
 
 def get_model(num_classes = 1000):
     '''
-    Load pre-trained ResNet50 and adapt for Pokemon classification
+    Phase 1: Load pre-trained ResNet50 and adapt for Pokemon classification
 
     Args:
     num_classes (int): Number of Pokémon classes to output
@@ -24,7 +24,7 @@ def get_model(num_classes = 1000):
 
 def unfreeze_model(model):
     '''
-    Transition to full fine-tuning
+    Phase 2: Transition to full fine-tuning
 
     Args:
     model: ResNet50 model returned by get_model()
