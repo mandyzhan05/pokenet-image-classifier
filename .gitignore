@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 pokenet.pth
 pokenet.pth
+slurm_logs/
