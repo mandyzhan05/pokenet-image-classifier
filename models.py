@@ -21,6 +21,7 @@ def get_model(num_classes = 1000):
     model.fc = nn.Sequential(
         nn.Dropout(0.5),
         nn.Linear(model.fc.in_features, num_classes)
+    )
 
     return model
 
