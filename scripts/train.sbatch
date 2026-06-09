@@ -9,10 +9,11 @@
 #SBATCH --partition=gpu
 #SBATCH --account=dsci410_510
 
-cd ~/DSCI-410L-Final-Project
+cd ~/pokenet-image-classifier
 echo "Changed directory"
 
-source ~/dsci410L_finalproject/venv/bin/activate
+# Create and activate a virtual environment (read "Installation & Setup" under README)
+source venv/bin/activate
 echo "Activated virtual enviornment"
 
 export POKEMON_DATASET_PATH=$HOME/.cache/kagglehub/datasets/noodulz/pokemon-dataset-1000/versions/2/pokemon-dataset-1000
