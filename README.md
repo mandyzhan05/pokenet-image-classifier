@@ -65,7 +65,7 @@ train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 ```
 
 ## **:clipboard: Results**
-During evaluation, I checked the performance on species classification performance and anaylyze its ability to detect shiny versions. Training results after 10 and 50 epochs can be found under ``` results/ ```. All evaluation metrics were computed using the best model checkpoint (``` results/pokenet_best.pth ```), which saved at the epoch with the lowest validation loss during Phase 2 training rather than the final epoch weights (``` results/pokenet.pth ```). This ensured results reflected the model at its peak performance rather than risking overfitting at later epochs.
+During evaluation, I checked the performance on species classification and analyzed its ability to detect shiny versions. Training results after 10 and 50 epochs can be found under ``` results/ ```. All evaluation metrics were computed using the best model checkpoint (``` results/pokenet_best.pth ```), which saved at the epoch with the lowest validation loss during Phase 2 training rather than the final epoch weights (``` results/pokenet.pth ```). This ensured results reflected the model at its peak performance rather than risking overfitting at later epochs.
 
 ### Species Classification Metrics Comparisons ###
 Macro F1 score was used to balance the normal-to-shiny ratio, and the top five accuracy calculates whether the model's prediction was in its top five guesses and the corresponding accuracy.
@@ -79,18 +79,22 @@ Macro F1 score was used to balance the normal-to-shiny ratio, and the top five a
  
 There was significant improvement after running additional epochs. Validation loss continued to improve even with 50 epochs during Phase 2 training. Early stopping was never triggered, suggesting that additional epochs could be beneficial in helping the model converge, potentially improving performance.
 
-I also compared the performances of the final model checkpoint with the best model checkpoint, which revealed identical F1 and accuracy scores across the board. This indicates that the final model checkpoint was, in fact, the best model checkpoint. As mentioned earlier, additional epochs could be beneficial in helping the model converge, which could highlight more apparent differences between the model checkpoints.
+I also compared the performance of the final model checkpoint with the best model checkpoint, which revealed identical F1 and accuracy scores across the board. This indicates that the final model checkpoint was, in fact, the best model checkpoint. As mentioned earlier, additional epochs could be beneficial in helping the model converge, which could highlight more apparent differences between the model checkpoints.
 
 ### Confusion ###
+<img width="1200" height="1000" alt="confusion_matrix 4 01 59 PM" src="https://github.com/user-attachments/assets/5827a5f1-462c-46ac-a784-893cbd03e31f" />
 
 ### Samples Prediction Visualization ###
+<img width="1500" height="300" alt="sample_predictions" src="https://github.com/user-attachments/assets/c4bd8b22-11fe-42fd-845d-928562c7b93b" />
 
 ### Shiny Detection Analysis ###
 To take my project a step further, I tested its ability to differentiate a Pokémon from its shiny version versus its original form. Since none of the shiny variations had ground truth labels indicating as such, I was unable to explicitly ask if a species was shiny or not. Instead, I manually identified the shiny versions first, then tested the model's confidence in predicting the species. My hypothesis was that the model was less confident when looking at the shiny version because the colors were different and would be higher if the versions were harder to distinguish.
 
-The confidence gap in identifying Garchomp is slightly larger than identifying Wooper. Across both Pokémon, the model appears to correctly identify the species majority of the time, and confidence in identifying the shiny versions is slightly less than identifying normal versions.
+<img width="990" height="495" alt="shiny_confidence 4 01 59 PM" src="https://github.com/user-attachments/assets/b7dd12f1-464b-4b57-8b9b-0326075c1c4d" />
+
+The confidence gap in identifying Garchomp is slightly larger than in identifying Wooper. Across both Pokémon, the model appears to correctly identify the species the majority of the time, and confidence in identifying the shiny versions is slightly less than identifying normal versions.
 
 ## **:exclamation: Limitations & Future Changes**
-Although there were 1000 classes, the dataset had around 21 training images per species and even less in the validation and test set. Furthermore, the dataset had more images and varying art styles for older species (Gen I-Gen VI) than newer ones with significantly different art styles (Gen VII-Gen X). There were also no ground truth labels separating normal and shiny versions, so I had to manually identify them, which was subject to higher human error for species with minimal differences between versions.
+Although there were 1000 classes, the dataset had around 21 training images per species and even fewer in the validation and test set. Furthermore, the dataset had more images and varying art styles for older species (Gen I-Gen VI) than newer ones with significantly different art styles (Gen VII-Gen X). There were also no ground truth labels separating normal and shiny versions, so I had to manually identify them, which was subject to higher human error for species with minimal differences between versions.
 
 If I were to change my course of action, I would consider a different interpretation of shiny detection analysis by manually labeling a small subset of shiny images across species and train those labels, measuring how shiny detection improves with additional labels. It would also be interesting to observe regional variations and how the model adapts to those, since regional forms also have distinct features from their original form. Finally, using GradCAM for feature visualization could provide a better visualization of which parts of the image the model focuses on for normal vs. shiny versions.
