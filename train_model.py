@@ -4,7 +4,6 @@ import os
 import torch
 import yaml
 import torch.nn as nn
-from ignite.handlers import EarlyStopping
 from models import get_model, unfreeze_model, get_device
 from pokenet.dataloader import get_data_loaders
 
