@@ -63,5 +63,22 @@ train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 ```
 
 ## **:clipboard: Results**
+During evaluation, I checked the performance on species classification performance and anaylyze its ability to detect shiny versions.
 
-## **:thought_balloon: Limitations**
+### Species Classification Metrics ###
+* Macro F1 score (used to balance the normal-to-shiny ratio): 0.8181475690975692
+* Top 5 accuracy (if the correct prediction was in the model's top 5 guesses): 0.9194195739425749
+
+### Confusion ###
+
+### Samples Prediction Visualization ###
+
+### Shiny Detection Analysis ###
+To take my project a step further, I tested its ability to differentiate a Pokémon from its shiny version versus its original form. Since none of the shiny variations had ground truth labels indicating as such, I was unable to explicitly ask if a species was shiny or not. Instead, I manually identified the shiny versions first, then tested the model's confidence in predicting the species. My hypothesis was that the model was less confident when looking at the shiny version because the colors were different and would be higher if the versions were harder to distinguish.
+
+The confidence gap in identifying Garchomp is slightly larger than identifying Wooper. Across both Pokémon, the model appears to correctly identify the species majority of the time, and confidence in identifying the shiny versions is slightly less than identifying normal versions.
+
+## **:exclamation: Limitations & Future Changes**
+Although there were 1000 classes, the dataset had around 21 training images per species and even less in the validation and test set. Furthermore, the dataset had more images and varying art styles for older species (Gen I-Gen VI) than newer ones with significantly different art styles (Gen VII-Gen X). There were also no ground truth labels separating normal and shiny versions, so I had to manually identify them, which was subject to higher human error for species with minimal differences between versions.
+
+If I were to change my course of action, I would consider a different interpretation of shiny detection analysis by manually labeling a small subset of shiny images across species and train those labels, measuring how shiny detection improves with additional labels. It would also be interesting to observe regional variations and how the model adapts to those, since regional forms also have distinct features from their original form. Finally, using GradCAM for feature visualization could provide a better visualization of which parts of the image the model focuses on for normal vs. shiny versions.
