@@ -53,6 +53,8 @@ learning_rate_phase2: 0.00001
 batch_size: 64
 ```
 
+Model weights are not included in this repository due to file size. To obtain the weights, run ``` python train_model.py --config configs/default.yaml ```.
+
 ## **:package: Package Usage**
 ``` import os
 from pokenet.dataloader import PokemonDataset
