@@ -46,8 +46,8 @@ export POKEMON_DATASET_PATH = $HOME/.cache/kagglehub/datasets/noodulz/pokemon-da
 
 2. To modify parameters, edit ```config.yaml```:
 ```
-epochs_phase1: 5
-epochs_phase2: 10
+epochs_phase1: 10
+epochs_phase2: 50
 learning_rate_phase1: 0.001
 learning_rate_phase2: 0.00001
 batch_size: 64
@@ -63,7 +63,7 @@ train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 ```
 
 ## **:clipboard: Results**
-During evaluation, I checked the performance on species classification performance and anaylyze its ability to detect shiny versions.
+During evaluation, I checked the performance on species classification performance and anaylyze its ability to detect shiny versions. Training results after 10 and 50 epochs can be found under ``` results/ ```. All evaluation metrics were computed using the best model checkpoint (``` results/pokenet_best.pth ```), which saved at the epoch with the lowest validation loss during Phase 2 training rather than the final epoch weights (``` results/pokenet.pth ```). This ensured results reflected the model at its peak performance rather than risking overfitting at later epochs.
 
 ### Species Classification Metrics ###
 * Macro F1 score (used to balance the normal-to-shiny ratio): 0.8181475690975692
