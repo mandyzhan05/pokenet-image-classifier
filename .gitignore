@@ -6,3 +6,5 @@ __pycache__/
 pokenet.pth
 slurm_logs/
 pokenet_best.pth
+venv/
+pokenet.egg-info/
