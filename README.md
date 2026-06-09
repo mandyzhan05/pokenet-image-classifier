@@ -65,9 +65,19 @@ train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 ## **:clipboard: Results**
 During evaluation, I checked the performance on species classification performance and anaylyze its ability to detect shiny versions. Training results after 10 and 50 epochs can be found under ``` results/ ```. All evaluation metrics were computed using the best model checkpoint (``` results/pokenet_best.pth ```), which saved at the epoch with the lowest validation loss during Phase 2 training rather than the final epoch weights (``` results/pokenet.pth ```). This ensured results reflected the model at its peak performance rather than risking overfitting at later epochs.
 
-### Species Classification Metrics ###
-* Macro F1 score (used to balance the normal-to-shiny ratio): 0.8181475690975692
-* Top 5 accuracy (if the correct prediction was in the model's top 5 guesses): 0.9194195739425749
+### Species Classification Metrics Comparisons ###
+Macro F1 score was used to balance the normal-to-shiny ratio, and the top five accuracy calculates whether the model's prediction was in its top five guesses and the corresponding accuracy.
+
+* Phase 1: 5 epochs | Phase 2: 10 epochs
+    * Macro F1 score: 0.8181475690975692
+    * Top 5 accuracy: 0.9194195739425749
+* Phase 1: 10 epochs | Phase 2: 50 epochs
+    * Macro F1 score: 0.9536894103118246
+    * Top 5 accuracy: 0.8959444888444889
+ 
+There was significant improvement after running additional epochs. Validation loss continued to improve even with 50 epochs during Phase 2 training. Early stopping was never triggered, suggesting that additional epochs could be beneficial in helping the model converge, potentially improving performance.
+
+I also compared the performances of the final model checkpoint with the best model checkpoint, which revealed identical F1 and accuracy scores across the board. This indicates that the final model checkpoint was, in fact, the best model checkpoint. As mentioned earlier, additional epochs could be beneficial in helping the model converge, which could highlight more apparent differences between the model checkpoints.
 
 ### Confusion ###
 
