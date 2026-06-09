@@ -4,6 +4,7 @@ import os
 import torch
 import yaml
 import torch.nn as nn
+from ignite.handlers import EarlyStopping
 from models import get_model, unfreeze_model, get_device
 from pokenet.dataloader import get_data_loaders
 
@@ -112,16 +113,31 @@ def train_model(base_path, config):
         validation_loss, validation_accuracy = evaluate(model, validation_loader, loss_function, device)
         print(f"Phase 1 Epoch {epoch + 1} / {EPOCHS_PHASE1}\n Train Loss: {train_loss} | Train Accuracy: {train_accuracy}\n Validation Loss: {validation_loss} | Validation Accuracy: {validation_accuracy}")
 
+    # Check for early stopping criteria to prevent overfitting
+    best_validation_loss = float("inf")
+    patience = 3
+    epochs_no_improve = 0
+
     # Phase 2: Fine tune the entire network
     model = unfreeze_model(model)
-    optimizer_2 = torch.optim.Adam(model.parameters(), lr = LEARNING_RATE_PHASE2)
+    optimizer_2 = torch.optim.Adam(model.parameters(), lr = LEARNING_RATE_PHASE2, weight_decay = 1e-3)
     for epoch in range(EPOCHS_PHASE2):
         train_loss, train_accuracy = train_one_epoch(model, train_loader, optimizer_2, loss_function, device)
         validation_loss, validation_accuracy = evaluate(model, validation_loader, loss_function, device)
+        # Check for early stopping criteria to prevent overfitting
+        if validation_loss < best_validation_loss:
+            best_validation_loss = validation_loss
+            torch.save(model.state_dict(), "pokenet_best.pth")  # Saves the best epoch for evaluation (best performance)
+            epochs_no_improve = 0
+        else:
+            epochs_no_improve += 1
+            if epochs_no_improve >= patience:
+                print("Early stopping triggered. Training stopped")
+                break
         print(f"Phase 2 Epoch {epoch + 1} / {EPOCHS_PHASE2}\n Train Loss: {train_loss} | Train Accuracy: {train_accuracy}\n Validation Loss: {validation_loss} | Validation Accuracy: {validation_accuracy}")
 
     # Save the model
-    torch.save(model.state_dict(), "pokenet.pth")
+    torch.save(model.state_dict(), "pokenet.pth")  # Saves the final epoch weights at the end
     print("Model saved successfully to pokenet.pth")
 
 if __name__ == "__main__":
