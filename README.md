@@ -35,9 +35,11 @@ chmod 600 ~/.kaggle/access_token
 ```
 
 4. Set the dataset path environment variable.
-``` export POKEMON_DATASET_PATH = $HOME/.cache/kagglehub/datasets/noodulz/pokemon-dataset-1000/versions/2/pokemon-dataset-1000 ```
+```
+export POKEMON_DATASET_PATH = $HOME/.cache/kagglehub/datasets/noodulz/pokemon-dataset-1000/versions/2/pokemon-dataset-1000
+```
 
-## **:thought_balloon: Training **
+## **:thought_balloon: Training**
 1. Submit a batch job on Talapas. Otherwise, run and train the model directly.
 ``` sbatch scripts/train.sbatch ```
 ``` python train_model.py --config config.yaml ```
