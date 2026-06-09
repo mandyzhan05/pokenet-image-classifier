@@ -1,0 +1,49 @@
+Changed directory
+Activated virtual enviornment
+Phase 1 Epoch 1 / 5
+ Train Loss: 5.896953885832535 | Train Accuracy: 0.13455379761961667
+ Validation Loss: 4.706077302088503 | Validation Accuracy: 0.39470365699873894
+Phase 1 Epoch 2 / 5
+ Train Loss: 3.7595920852206017 | Train Accuracy: 0.5145069547344773
+ Validation Loss: 3.4934027528702685 | Validation Accuracy: 0.5834384195039932
+Phase 1 Epoch 3 / 5
+ Train Loss: 2.684777319337287 | Train Accuracy: 0.6869174513646575
+ Validation Loss: 2.805763061931525 | Validation Accuracy: 0.6536359815048339
+Phase 1 Epoch 4 / 5
+ Train Loss: 2.019858139843656 | Train Accuracy: 0.7758233354046173
+ Validation Loss: 2.362555231051868 | Validation Accuracy: 0.698192517864649
+Phase 1 Epoch 5 / 5
+ Train Loss: 1.5717093752638616 | Train Accuracy: 0.8356675111132355
+ Validation Loss: 2.0996735635150525 | Validation Accuracy: 0.733921815889029
+Phase 2 Epoch 1 / 10
+ Train Loss: 0.622641231132667 | Train Accuracy: 0.8815544190048277
+ Validation Loss: 1.1536476765424577 | Validation Accuracy: 0.7650273224043715
+Phase 2 Epoch 2 / 10
+ Train Loss: 0.37845998447037443 | Train Accuracy: 0.9184551407676498
+ Validation Loss: 0.9841520577831998 | Validation Accuracy: 0.7952921395544347
+Phase 2 Epoch 3 / 10
+ Train Loss: 0.27135161272506575 | Train Accuracy: 0.944027532144735
+ Validation Loss: 0.8990511989683702 | Validation Accuracy: 0.8158890290037831
+Phase 2 Epoch 4 / 10
+ Train Loss: 0.2047144195516207 | Train Accuracy: 0.9594665646957602
+ Validation Loss: 0.8380426297221879 | Validation Accuracy: 0.8247162673392182
+Phase 2 Epoch 5 / 10
+ Train Loss: 0.1626203076532093 | Train Accuracy: 0.9678791644758855
+ Validation Loss: 0.7780810221246733 | Validation Accuracy: 0.8335435056746532
+Phase 2 Epoch 6 / 10
+ Train Loss: 0.12662147823681105 | Train Accuracy: 0.977725730127623
+ Validation Loss: 0.7389150739417651 | Validation Accuracy: 0.8461538461538461
+Phase 2 Epoch 7 / 10
+ Train Loss: 0.10166018522852414 | Train Accuracy: 0.982792409540653
+ Validation Loss: 0.7228701094610944 | Validation Accuracy: 0.8432114333753677
+Phase 2 Epoch 8 / 10
+ Train Loss: 0.08194328258002354 | Train Accuracy: 0.9878112900912959
+ Validation Loss: 0.6956070351119601 | Validation Accuracy: 0.8486759142496847
+Phase 2 Epoch 9 / 10
+ Train Loss: 0.07137116843717976 | Train Accuracy: 0.9894364514124564
+ Validation Loss: 0.6761061766910272 | Validation Accuracy: 0.8516183270281631
+Phase 2 Epoch 10 / 10
+ Train Loss: 0.061873265743258465 | Train Accuracy: 0.9915396013574876
+ Validation Loss: 0.6660354330590814 | Validation Accuracy: 0.8579234972677595
+Model saved successfully to pokenet.pth
+Training complete
